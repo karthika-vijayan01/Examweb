@@ -1,0 +1,76 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #div1{
+            border-spacing: inherit;
+
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        
+</head>
+
+    
+<body>
+    <div id="div1" class="container border border-3 "  ><br>
+    <form id="login"  class=" border border-5 border border-dark btn btn-dark rounded">
+        <h1>TRAVEL REQUEST</h1>
+        <label for="username">USERNAME: </label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">PASSWORD: </label>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="submit"><a href=request1.html>Submit </a></button>
+    </form>
+    <p id="credentialscheckmessage"></p>
+    <p id="loginerrormsg"></p>
+    <p id="passworderrormsg"></p>
+    </div>
+</body>
+<script>
+    
+    
+    document.addEventListener('DOMContentLoaded', function() {
+            var username = 'admin';
+            var password = 'admin123';
+
+            document.getElementById('login').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Fetch the values entered by the user after form submission
+                var enteredusername = document.querySelector('#username').value;
+                var enteredpassword = document.querySelector('#password').value;
+
+                var credentialscheckmessage = document.getElementById('credentialscheckmessage');
+
+                // Check if the entered username and password match the stored values
+                if (enteredusername === username && enteredpassword === password) {
+                    credentialscheckmessage.textContent = 'Logged In';
+                    credentialscheckmessage.style.color = "green";
+                } else {
+                    credentialscheckmessage.textContent = 'Invalid username or password.';
+                    credentialscheckmessage.style.color = "red";
+                }
+
+                if(!enteredusername){
+                    loginerrormsg.textContent="please enter username";
+                    loginerrormsg.style.color="red";
+                }
+                if(!enteredpassword)
+                {
+
+                    passworderrormsg.textContent="please enter password";
+                    passworderrormsg.style.color="red"
+
+                }
+            });
+        });
+
+</script>
+</html>
+               
