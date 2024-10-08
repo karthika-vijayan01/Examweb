@@ -1,0 +1,64 @@
+B) Retrieve five characters starting from the third character and
+display it in a console
+
+ANSWER :
+-----------------
+string substring = file_content.Substring(2, 6);
+Console.WriteLine("\nRetrieved characters:");
+Console.WriteLine(substring);
+
+OUT PUT:
+Retrieved characters:
+ Famil
+******************************************
+E)Copy a file to another destination specified by the user.
+
+ANSWER :
+----------------
+string[] arr = {"My Family Consist of 7 Members Including Me :\n ","*Grandma :Sarojini", "*Father :Gopinadhan", "*Mother :Syamala", 
+"*Husband :Pradeep V G", "*Daughter :Advika" ,"*Son :Advin"};
+File.WriteAllLines(file_path, arr);
+
+Console.WriteLine("\nFile Created and Reading The Data\n");
+ string file_content = File.ReadAllText(file_path);
+Console.Write("\nEnter destination file path : ");
+string destinationFilePath = Console.ReadLine();
+ 
+    if (File.Exists(file_path))
+    {
+        // Copy file
+        File.Copy(file_path, destinationFilePath,true );
+
+        Console.WriteLine("File copied successfully.");
+    }
+    else
+    {
+        Console.WriteLine("Source file not found.");
+    }
+
+
+OUT PUT:
+My Family Consist of 7 Members Including Me :
+ 
+*Grandma :Sarojini
+*Father :Gopinadhan
+*Mother :Syamala
+*Husband :Pradeep V G
+*Daughter :Advika
+*Son :Advin
+
+************************************************
+A)Append a text to the existing text in a file. Other files should be
+able to interact with this file only in the Read Mode while your
+application is interacting with the file.
+
+ANSWER :
+------------------------
+string sr = "I Love My Family ! \nI am Realy Happy With My Family !" ;
+File.AppendAllText(file_path, "\n" +  sr);
+string s1=File.ReadAllText(file_path);
+Console.WriteLine("I am Karthika Pradeep : "+ s1);
+
+OUT PUT:
+I Love My Family ! 
+I am Realy Happy With My Family !
